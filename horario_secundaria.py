@@ -11,6 +11,7 @@ r = urllib.request.urlopen('https://raw.githubusercontent.com/alexmagno6m/render
 df = pd.read_csv(r, sep=';')
 df = df[['PROFESOR_O_CURSOS', 'DIA', '1', '2', '3', '4', '5', '6']]
 app = Dash(__name__)
+server = app.server
 app.layout = html.Div([
     html.H2('Horario General Secundaria'),
     html.H2('Colegio Antonio Baraya IED'),
@@ -68,4 +69,4 @@ def update_dropdown(proff_v):
         return dff.to_dict('records')
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False)
