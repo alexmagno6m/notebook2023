@@ -16,10 +16,11 @@ app.layout = html.Div([
     html.H2('Horario General Secundaria'),
     html.H2('Colegio Antonio Baraya IED'),
 html.Div([
-  professor_drop := dcc.Dropdown([x for x in sorted(df.PROFESOR_O_CURSOS.unique())],
-                                 placeholder="Seleccione/escriba un curso o profesor")
+  dcc.Dropdown([x for x in sorted(df.PROFESOR_O_CURSOS.unique())],
+               id='professor_drop',
+                placeholder="Seleccione/escriba un curso o profesor")
 ]),
-    my_table := dash_table.DataTable(
+    dash_table.DataTable(
         data=df.to_dict('records'),
         page_size=10,
         columns=[{'name': i, 'id': i} for i in df.columns],
@@ -52,15 +53,16 @@ html.Div([
             {'if': {'column_id': 'DIA'},
              'width': '10%'},
 
-]
+],
+        id='my_table'
 
 
     ),
 ])
 
 @callback(
-Output(my_table, 'data'),
-Input(professor_drop, 'value'),
+Output('my_table', 'data'),
+Input('professor_drop', 'value'),
 )
 def update_dropdown(proff_v):
     dff = df.copy()
@@ -69,4 +71,4 @@ def update_dropdown(proff_v):
         return dff.to_dict('records')
 
 if __name__ == '__main__':
-    app.run_server(debug=False)
+    app.run_server(debug=True)
