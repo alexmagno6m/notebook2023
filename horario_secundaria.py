@@ -89,6 +89,6 @@ def update_dropdown(proff_v, day_v):
     if day_v:
         dff = dff[dff.DIA == day_v]
         return dff.to_dict('records')
-
+# un solo return al mismo nivel del if muestra toda la tabla
 if __name__ == '__main__':
     app.run_server(debug=False)
