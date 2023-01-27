@@ -20,7 +20,8 @@ html.Div([
     "listado de profesores inicia terminado el listado de cursos",
   dcc.Dropdown([x for x in sorted(df.PROFESOR_O_CURSOS.unique())],
                id='professor_drop',
-               placeholder="Seleccione/escriba un curso o profesor")
+               searchable=False,
+               placeholder="Seleccione un curso o profesor")
 ],
             style={'width':'35%'}
 ),
@@ -29,6 +30,7 @@ html.Div([
     "Dia_p (profesor) o Dia_c (curso):",
     dcc.Dropdown([x for x in (df.DIA.unique())],
     id = 'dia_drop',
+    searchable=False,
     placeholder = "Seleccionar Dia")
 ],
   style={'width':'30%'}
