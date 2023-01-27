@@ -23,7 +23,7 @@ html.Div([
                searchable=False,
                placeholder="Seleccione un curso o profesor")
 ],
-            style={'width':'35%'}
+            style={'width':'40%'}
 ),
 html.Div([
     "Para ver el horario por dias seleccione: "
@@ -33,7 +33,7 @@ html.Div([
     searchable=False,
     placeholder = "Seleccionar Dia")
 ],
-  style={'width':'30%'}
+  style={'width':'40%'}
 ),
 
     dash_table.DataTable(
