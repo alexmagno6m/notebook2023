@@ -16,6 +16,7 @@ app.layout = html.Div([
     html.H2('Horario General Secundaria'),
     html.H2('Colegio Antonio Baraya IED'),
 html.Div([
+    "Listado de profesores inicia despues del listado de cursos",
   dcc.Dropdown([x for x in sorted(df.PROFESOR_O_CURSOS.unique())],
                id='professor_drop',
                placeholder="Seleccione/escriba un curso o profesor")
