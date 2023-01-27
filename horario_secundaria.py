@@ -29,7 +29,7 @@ html.Div([
     "Dia_p (profesor) o Dia_c (curso):",
     dcc.Dropdown([x for x in (df.DIA.unique())],
     id = 'dia_drop',
-    placeholder="Seleccionar Dia")
+    placeholder = "Seleccionar Dia")
 ],
   style={'width':'30%'}
 ),
