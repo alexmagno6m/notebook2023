@@ -85,10 +85,10 @@ def update_dropdown(proff_v, day_v):
     dff = df.copy()
     if proff_v:
         dff = dff[dff.PROFESOR_O_CURSOS == proff_v]
-
+        return dff.to_dict('records')
     if day_v:
         dff = dff[dff.DIA == day_v]
-    return dff.to_dict('records')
+        return dff.to_dict('records')
 
 if __name__ == '__main__':
     app.run_server(debug=False)
