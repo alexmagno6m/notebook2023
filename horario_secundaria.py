@@ -26,7 +26,7 @@ html.Div([
             style={'width':'40%'}
 ),
 html.Div([
-    "Consulte el horario global por dias, seleccione: "
+    "o puede Consultar el horario global por dias, seleccione: "
     "Dia_p (profesor) o Dia_c (curso):",
     dcc.Dropdown([x for x in (df.DIA.unique())],
     id = 'dia_drop',
