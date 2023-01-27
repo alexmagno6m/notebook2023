@@ -16,7 +16,8 @@ app.layout = html.Div([
     html.H2('Horario General Secundaria'),
     html.H2('Colegio Antonio Baraya IED'),
 html.Div([
-    "Listado de profesores inicia despues del listado de cursos",
+    "Horarios individuales, el "
+    "listado de profesores inicia terminado el listado de cursos",
   dcc.Dropdown([x for x in sorted(df.PROFESOR_O_CURSOS.unique())],
                id='professor_drop',
                placeholder="Seleccione/escriba un curso o profesor")
@@ -24,7 +25,8 @@ html.Div([
             style={'width':'35%'}
 ),
 html.Div([
-    "O tambien puede escoger Dia_c (curso) o Dia_p (profesor):",
+    "Para ver el horario por dias seleccione: "
+    "Dia_p (profesor) o Dia_c (curso):",
     dcc.Dropdown([x for x in (df.DIA.unique())],
     id = 'dia_drop',
     placeholder="Seleccionar Dia")
