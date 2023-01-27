@@ -18,11 +18,22 @@ app.layout = html.Div([
 html.Div([
   dcc.Dropdown([x for x in sorted(df.PROFESOR_O_CURSOS.unique())],
                id='professor_drop',
-                placeholder="Seleccione/escriba un curso o profesor")
-]),
+               placeholder="Seleccione/escriba un curso o profesor")
+],
+            style={'width':'35%'}
+),
+html.Div([
+    "O tambien puede escoger Dia_c (curso) o Dia_p (profesor):",
+    dcc.Dropdown([x for x in (df.DIA.unique())],
+    id = 'dia_drop',
+    placeholder="Seleccionar Dia")
+],
+  style={'width':'30%'}
+),
+
     dash_table.DataTable(
         data=df.to_dict('records'),
-        page_size=10,
+        page_size=18,
         columns=[{'name': i, 'id': i} for i in df.columns],
         style_data_conditional=(
             [
@@ -63,12 +74,16 @@ html.Div([
 @callback(
 Output('my_table', 'data'),
 Input('professor_drop', 'value'),
+Input('dia_drop', 'value')
 )
-def update_dropdown(proff_v):
+def update_dropdown(proff_v, day_v):
     dff = df.copy()
     if proff_v:
-        dff = dff[dff.PROFESOR_O_CURSOS==proff_v]
-        return dff.to_dict('records')
+        dff = dff[dff.PROFESOR_O_CURSOS == proff_v]
+
+    if day_v:
+        dff = dff[dff.DIA == day_v]
+    return dff.to_dict('records')
 
 if __name__ == '__main__':
     app.run_server(debug=False)
