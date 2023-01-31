@@ -96,6 +96,10 @@ html.Div([
 
 
     ),
+    html.Div([
+        html.H3('Powered by BitSmart | Alexander Acevedo')
+    ])
+
 ])
 
 @callback(
