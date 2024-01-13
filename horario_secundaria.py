@@ -9,6 +9,12 @@ df = pd.read_csv(r, sep=';')
 df = df[['PROFESOR_O_CURSOS', 'DIA', '1', '2', '3', '4', '5', '6']]
 app = Dash(__name__)
 server = app.server
+''' For input field
+                     id='professor_drop',
+                     type="text",
+                     autoComplete=False,
+                     placeholder="Seleccione un curso o profesor"
+'''
 app.layout = html.Div([
     html.H2('Horario General Secundaria'),
     html.H2('Colegio Antonio Baraya IED'),
